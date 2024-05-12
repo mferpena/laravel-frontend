@@ -1,0 +1,76 @@
+<div class="max-h-screen overflow-y-auto">
+    <form [formGroup]="employeeForm" (ngSubmit)="submitForm()" class="w-full max-w-lg mx-auto p-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+                <label for="paternalName" class="block text-gray-700 text-sm font-bold mb-2">Primer Apellido:</label>
+                <input formControlName="paternalName" id="paternalName" type="text" placeholder="Primer Apellido"
+                    class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div>
+                <label for="maternalName" class="block text-gray-700 text-sm font-bold mb-2">Segundo Apellido:</label>
+                <input formControlName="maternalName" id="maternalName" type="text" placeholder="Segundo Apellido"
+                    class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div>
+                <label for="firstName" class="block text-gray-700 text-sm font-bold mb-2">Primer Nombre:</label>
+                <input formControlName="firstName" id="firstName" type="text" placeholder="Primer Nombre"
+                    class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div>
+                <label for="otherNames" class="block text-gray-700 text-sm font-bold mb-2">Otros Nombres:</label>
+                <input formControlName="otherNames" id="otherNames" type="text" placeholder="Otros Nombres"
+                    class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div>
+                <label for="employmentCountry" class="block text-gray-700 text-sm font-bold mb-2">País del
+                    empleo:</label>
+                <select formControlName="employmentCountry" id="employmentCountry"
+                    class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="">Selecciona el país del empleo</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="United States">Estados Unidos</option>
+                </select>
+            </div>
+            <div>
+                <label for="idType" class="block text-gray-700 text-sm font-bold mb-2">Tipo de Identificación:</label>
+                <select formControlName="idType" id="idType"
+                    class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="">Selecciona el tipo de identificación</option>
+                    <option value="Cédula de Ciudadanía">Cédula de Ciudadanía</option>
+                    <option value="Cédula de Extranjería">Cédula de Extranjería</option>
+                    <option value="Pasaporte">Pasaporte</option>
+                    <option value="Permiso Especial">Permiso Especial</option>
+                </select>
+            </div>
+            <div>
+                <label for="idNumber" class="block text-gray-700 text-sm font-bold mb-2">Número de
+                    Identificación:</label>
+                <input formControlName="idNumber" id="idNumber" type="text" placeholder="Número de Identificación"
+                    class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div>
+                <label for="area" class="block text-gray-700 text-sm font-bold mb-2">Área:</label>
+                <select formControlName="area" id="area"
+                    class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="">Selecciona el área</option>
+                    <option value="Administración">Administración</option>
+                    <option value="Financiera">Financiera</option>
+                    <option value="Compras">Compras</option>
+                    <option value="Infraestructura">Infraestructura</option>
+                    <option value="Operación">Operación</option>
+                    <option value="Talento Humano">Talento Humano</option>
+                    <option value="Servicios Varios">Servicios Varios</option>
+                </select>
+            </div>
+        </div>
+        <input formControlName="estado" id="estado" type="hidden" value="Activo">
+        <div class="flex justify-end">
+            <button type="submit"
+                style="margin-top: 20px; cursor: pointer;"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                [disabled]="!employeeForm.valid">
+                {{ mode === 'create' ? 'Crear Empleado' : 'Actualizar Empleado' }}
+            </button>
+        </div>
+    </form>
+</div>
